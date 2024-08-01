@@ -14,6 +14,7 @@ public class UrlController {
     @Autowired
     private UrlService service;
     // Modifications needed
+    // can use redis
 
     @PostMapping("/shorten")
     public Optional<Url> shortenUrl(@RequestBody Url longUrl){

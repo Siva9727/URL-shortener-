@@ -5,6 +5,7 @@ import com.siva.shortener.repository.UrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -40,5 +41,9 @@ public class UrlService {
 
     public Optional<Url> getOriginalUrl(String shortUrl){
         return Optional.ofNullable(urlRepository.findByShortUrl(shortUrl));
+    }
+
+    public List<Url> getAllUrl(){
+        return urlRepository.findAll();
     }
 }

@@ -1,9 +1,6 @@
 package com.siva.shortener.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,12 +9,17 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "url_mapping",indexes = {@Index(columnList = "originalUrl"),
+@Index(columnList = "shortUrl")})
 public class Url {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(nullable = false,unique = true)
     private String originalUrl;
+
+    @Column(nullable = false,unique = true)
     private String shortUrl;
 }

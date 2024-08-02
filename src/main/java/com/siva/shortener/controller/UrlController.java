@@ -20,7 +20,7 @@ public class UrlController {
     // can use redis
 
     @PostMapping("/shorten")
-    public Optional<Url> shortenUrl(@RequestBody Url longUrl){
+    public Optional<Url> shortenUrl( @RequestBody Url longUrl){
         return service.shortenUrl(longUrl.getOriginalUrl());
     }
 

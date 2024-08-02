@@ -4,6 +4,7 @@ import com.siva.shortener.model.Url;
 import com.siva.shortener.repository.UrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +16,7 @@ public class UrlService {
     @Autowired
     private UrlRepository urlRepository;
 
+    @Transactional
     public Optional<Url> shortenUrl(String originalUrl){
         // first check the given url is already present in the db
         Url existing = urlRepository.findByOriginalUrl(originalUrl);
